@@ -30,7 +30,7 @@
     const para = document.createElement('p');
 
     const phonebook = [
-      { name : 'Chris', number : '1549' },
+      { name : 'Chris', number : '1549' },  
       { name : 'Li Kang', number : '9634' },
       { name : 'Anne', number : '9065' },
       { name : 'Francesca', number : '3001' },
@@ -40,7 +40,31 @@
       { name : 'Jada', number : '2282' },
     ]
 
-    // Add your code here
+    let array = [];
+
+      function Names() {
+      for (let i = 0; i < phonebook.length; i++){
+      array[i] =`${phonebook[i].name}`;
+      }
+    }
+
+    Names();
+    
+
+    let user = prompt("Whose phone number you want?");
+
+    let flag = 0;
+    for (let i = 0; i < array.length; i++) {
+       if (user == `${array[i]}`) {
+        para.textContent += `${phonebook[i].name}` + ": " + `${phonebook[i].number}`
+        flag = 1;
+        break;
+       }
+    }
+    if (flag == 0) {
+      para.textContent = "We dont have this number";
+    }
+
 
     // Don't edit the code below here!
     const section = document.querySelector('section');
